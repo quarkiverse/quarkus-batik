@@ -30,7 +30,7 @@ Read the full [Batik documentation](https://docs.quarkiverse.io/quarkus-batik/de
 ### Prerequisite
 
 * Create or use an existing Quarkus application
-* Add the batik or OpenPDFextension with the [Quarkus CLI](https://quarkus.io/guides/cli-tooling):
+* Add the Batik with the [Quarkus CLI](https://quarkus.io/guides/cli-tooling):
 
 ```bash
 quarkus ext add io.quarkiverse.batik:quarkus-batik
