@@ -1,7 +1,4 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
     <img src="https://raw.githubusercontent.com/quarkiverse/.github/main/assets/images/quarkus.svg" alt="Quarkus logo" style="height: 70px; width: auto;">
     <img src="https://raw.githubusercontent.com/quarkiverse/.github/main/assets/images/plus-sign.svg" alt="Plus sign" style="height: 70px; width: auto;">
@@ -15,6 +12,10 @@
 [![Version](https://img.shields.io/maven-central/v/io.quarkiverse.batik/quarkus-batik?logo=apache-maven&style=flat-square)](https://search.maven.org/artifact/io.quarkiverse.batik/quarkus-batik)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](https://opensource.org/licenses/Apache-2.0)
 [![Build](https://github.com/quarkiverse/quarkus-batik/actions/workflows/build.yml/badge.svg)](https://github.com/quarkiverse/quarkus-batik/actions/workflows/build.yml)
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Overview
 
