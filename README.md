@@ -44,8 +44,8 @@ Or add to your pom.xml directly:
 
 ```xml
 <dependency>
-    <groupId>io.quarkiverse.openpdf</groupId>
-    <artifactId>quarkus-openpdf</artifactId>
+    <groupId>io.quarkiverse.batik</groupId>
+    <artifactId>quarkus-batik</artifactId>
     <version>{project-version}</version>
 </dependency>
 ```
