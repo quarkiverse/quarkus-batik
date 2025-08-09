@@ -11,11 +11,11 @@ import io.quarkus.test.junit.QuarkusTest;
 public class BatikResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testAddWatermarkEndpoint() {
         given()
                 .when().get("/batik")
                 .then()
                 .statusCode(200)
-                .body(is("Hello batik"));
+                .body(is("Batik added SVG Watermark"));
     }
 }
