@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.quarkiverse.batik</groupId>
         <artifactId>quarkus-batik-parent</artifactId>
-        <version>1.0.0</version>
+        <version>999-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-batik-deployment</artifactId>
     <name>Quarkus Batik - Deployment</name>
