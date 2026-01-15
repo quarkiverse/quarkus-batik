@@ -24,6 +24,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "apupier",
+      "name": "Aurélien Pupier",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1105127?v=4",
+      "profile": "https://github.com/apupier",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
