@@ -69,6 +69,8 @@ class BatikProcessor {
                 org.apache.batik.ext.awt.image.spi.DefaultBrokenLinkProvider.class.getName(),
                 org.apache.batik.gvt.CompositeGraphicsNode.class.getPackageName(),
                 org.apache.batik.gvt.renderer.MacRenderer.class.getPackageName(),
+                org.apache.batik.transcoder.wmf.tosvg.WMFHeaderProperties.class.getName(),
+                org.apache.batik.transcoder.wmf.tosvg.WMFPainter.class.getName(),
                 org.apache.batik.script.InterpreterPool.class.getName(),
                 org.apache.batik.script.jpython.JPythonInterpreter.class.getPackageName(),
                 org.apache.batik.svggen.SVGClip.class.getPackageName()

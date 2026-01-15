@@ -22,8 +22,13 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
 
 import javax.imageio.ImageIO;
 
@@ -35,6 +40,8 @@ import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.ImageTranscoder;
+import org.apache.batik.transcoder.wmf.tosvg.WMFHeaderProperties;
+import org.apache.batik.transcoder.wmf.tosvg.WMFTranscoder;
 
 @Path("/batik")
 @ApplicationScoped
@@ -59,6 +66,36 @@ public class BatikResource {
         }
         addWaterMark(imagesBytes);
         return "Batik added SVG Watermark";
+    }
+
+    @GET
+    @Path("/convertFromWmfToSVG")
+    public String fromWMFToSVG() throws IOException, TranscoderException {
+        byte[] imagesBytes = null;
+        try (InputStream resource = getClass().getResourceAsStream("/image/imageWMF.wmf")) {
+            if (resource == null) {
+                throw new IOException("Unable to read image");
+            }
+            imagesBytes = resource.readAllBytes();
+        }
+        java.nio.file.Path wmfFilePath = Files.createTempFile("imageWMF", ".wmf");
+        Files.write(wmfFilePath, imagesBytes);
+
+        WMFHeaderProperties prop = new WMFHeaderProperties(wmfFilePath.toFile());
+        TranscoderInput input = new TranscoderInput(new FileInputStream(wmfFilePath.toFile()));
+        java.nio.file.Path tempDirectory = Files.createTempDirectory("tmp-test-convert-wmf-to-svg");
+        File svg = new File(tempDirectory.toFile(), "svgConvertedFromWmf.svg");
+        OutputStream stream = new FileOutputStream(svg);
+        TranscoderOutput output = new TranscoderOutput(stream);
+        WMFTranscoder transcoder = new WMFTranscoder();
+        transcoder.addTranscodingHint(WMFTranscoder.KEY_INPUT_WIDTH, prop.getWidthBoundsPixels());
+        transcoder.addTranscodingHint(WMFTranscoder.KEY_INPUT_HEIGHT, prop.getHeightBoundsPixels());
+        transcoder.addTranscodingHint(WMFTranscoder.KEY_XOFFSET, prop.getXOffset());
+        transcoder.addTranscodingHint(WMFTranscoder.KEY_YOFFSET, prop.getYOffset());
+
+        transcoder.transcode(input, output);
+
+        return "Batik converted from wmf to svg";
     }
 
     /**

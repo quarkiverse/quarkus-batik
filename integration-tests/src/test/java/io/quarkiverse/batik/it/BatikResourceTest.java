@@ -18,4 +18,13 @@ public class BatikResourceTest {
                 .statusCode(200)
                 .body(is("Batik added SVG Watermark"));
     }
+
+    @Test
+    public void testConvertWMFToSVG() {
+        given()
+                .when().get("/batik/convertFromWmfToSVG")
+                .then()
+                .statusCode(200)
+                .body(is("Batik converted from wmf to svg"));
+    }
 }
