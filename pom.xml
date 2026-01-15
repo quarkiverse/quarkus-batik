@@ -9,7 +9,7 @@
     </parent>
     <groupId>io.quarkiverse.batik</groupId>
     <artifactId>quarkus-batik-parent</artifactId>
-    <version>1.1.0</version>
+    <version>999-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Quarkus Batik - Parent</name>
     <description>Batik supports Scalable Vector Graphics (SVG) format for various purposes, such as display, generation or manipulation.</description>
@@ -23,7 +23,7 @@
         <connection>scm:git:git@github.com:quarkiverse/quarkus-batik.git</connection>
         <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-batik.git</developerConnection>
         <url>https://github.com/quarkiverse/quarkus-batik</url>
-      <tag>1.1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
