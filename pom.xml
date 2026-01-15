@@ -68,6 +68,19 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
+                <artifactId>batik-codec</artifactId>
+                <version>${batik.version}</version>
+                <scope>compile</scope>
+                <optional>false</optional>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlgraphics</groupId>
                 <artifactId>batik-svggen</artifactId>
                 <version>${batik.version}</version>
                 <scope>compile</scope>

@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.batik.ext.awt.image.spi.ImageWriter;
+import org.apache.batik.ext.awt.image.spi.RegistryEntry;
 import org.jboss.jandex.ClassInfo;
 import org.jboss.jandex.DotName;
 
@@ -18,6 +20,7 @@ import io.quarkus.deployment.builditem.IndexDependencyBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.NativeImageResourcePatternsBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.RuntimeInitializedPackageBuildItem;
+import io.quarkus.deployment.builditem.nativeimage.ServiceProviderBuildItem;
 import io.quarkus.logging.Log;
 
 class BatikProcessor {
@@ -34,6 +37,7 @@ class BatikProcessor {
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-anim"));
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-awt-util"));
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-bridge"));
+        index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-codec"));
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-constants"));
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-css"));
         index.produce(new IndexDependencyBuildItem("org.apache.xmlgraphics", "batik-dom"));
@@ -69,6 +73,8 @@ class BatikProcessor {
                 org.apache.batik.ext.awt.image.spi.DefaultBrokenLinkProvider.class.getName(),
                 org.apache.batik.gvt.CompositeGraphicsNode.class.getPackageName(),
                 org.apache.batik.gvt.renderer.MacRenderer.class.getPackageName(),
+                org.apache.batik.transcoder.wmf.tosvg.WMFHeaderProperties.class.getName(),
+                org.apache.batik.transcoder.wmf.tosvg.WMFPainter.class.getName(),
                 org.apache.batik.script.InterpreterPool.class.getName(),
                 org.apache.batik.script.jpython.JPythonInterpreter.class.getPackageName(),
                 org.apache.batik.svggen.SVGClip.class.getPackageName()
@@ -99,6 +105,12 @@ class BatikProcessor {
         final NativeImageResourcePatternsBuildItem.Builder builder = NativeImageResourcePatternsBuildItem.builder();
         builder.includeGlob("**/apache/batik/**/resources/**");
         nativeImageResourcePatterns.produce(builder.build());
+    }
+
+    @BuildStep
+    void registerService(BuildProducer<ServiceProviderBuildItem> service) {
+        service.produce(ServiceProviderBuildItem.allProvidersFromClassPath(ImageWriter.class.getName()));
+        service.produce(ServiceProviderBuildItem.allProvidersFromClassPath(RegistryEntry.class.getName()));
     }
 
     protected List<String> collectClassesInPackage(CombinedIndexBuildItem combinedIndex, String packageName) {
