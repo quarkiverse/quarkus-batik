@@ -103,7 +103,7 @@ class BatikProcessor {
     void registerBatikResources(BuildProducer<NativeImageResourcePatternsBuildItem> nativeImageResourcePatterns) {
         // Register all message bundles
         final NativeImageResourcePatternsBuildItem.Builder builder = NativeImageResourcePatternsBuildItem.builder();
-        builder.includeGlob("**/apache/batik/**/resources/**");
+        builder.includeGlob("org/apache/batik/**/resources/**");
         nativeImageResourcePatterns.produce(builder.build());
     }
 

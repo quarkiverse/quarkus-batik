@@ -27,11 +27,7 @@
   </scm>
 
     <properties>
-        <compiler-plugin.version>3.16.0</compiler-plugin.version>
-        <maven.compiler.release>17</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.version>3.27.1</quarkus.version>
+        <quarkus.version>4.0.0.Beta1</quarkus.version>
         <batik.version>1.19</batik.version>
     </properties>
 
@@ -167,13 +163,6 @@
                     <groupId>io.quarkus</groupId>
                     <artifactId>quarkus-maven-plugin</artifactId>
                     <version>${quarkus.version}</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${compiler-plugin.version}</version>
-                    <configuration>
-                        <parameters>true</parameters>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>io.quarkus</groupId>
