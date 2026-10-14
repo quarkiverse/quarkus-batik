@@ -50,6 +50,14 @@ Or add to your pom.xml directly:
 </dependency>
 ```
 
+## Compatibility
+
+| Quarkus Batik version | Quarkus version |
+| --------------------- | --------------- |
+| 1.1.x                 | 3.27.1+         |
+| 2.x                   | 4.0.0.Beta1+    |
+
+2.x targets Quarkus 4 and requires JDK 21. If you are still on Quarkus 3, stay on 1.1.x, which is maintained from the `1.x` branch.
 
 ## Contributors ✨
 
