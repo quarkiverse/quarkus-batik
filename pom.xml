@@ -28,7 +28,7 @@
 
     <properties>
         <quarkus.version>4.0.0.Beta1</quarkus.version>
-        <batik.version>1.19</batik.version>
+        <batik.version>1.20</batik.version>
     </properties>
 
     <dependencyManagement>
